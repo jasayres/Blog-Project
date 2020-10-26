@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div th:replace="fragments/styling :: headStyles" ></div>
+</head>
+
+<body>
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <body style="background-color:#bd52a2;">
+
+    <div class="container"></div>
+    <div class="jumbotron">
+        <h1 class="display-3 font-bold">Create a New Blog Post:</h1>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form action="#" th:action="@{/blogpost}" th:object="${blogPost}" method="post">
+                <form action="#" th:action="@{/blogposts}" th:object="${blogPost}" method="post">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mb-3" placeholder="Blog Title..." th:field="*{title}" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mb-3" placeholder="Your Name Here..." th:field="*{author}" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mb-3" placeholder="Blog Entry" th:field="*{blogEntry}" />
+                    </div>
+
+                    <button class="btn btn-primary">Submit Your Post</button>
+                </form>
+        </div>
+
+        <footer class="footer mt-auto py-3">
+            <div class="container">
+                <span class="text-muted">We hope that you enjoy the blog!</span>
+            </div>
+        </footer>
+
+        <div th:replace="fragments/styling :: javascripts"></div>
+</body>
+
+</html>

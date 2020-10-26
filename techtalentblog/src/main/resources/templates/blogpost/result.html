@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div th:replace="fragments/styling :: headStyles"></div>
+</head>
+
+<body>
+  <div th:replace="fragments/navbar :: navbar"></div>
+
+  <body style="background-color:#bd52a2;">
+    
+  <div class="container"></div>
+    <div class="jumbotron">
+      <div class="row text-center">
+      <div class="row">    
+        <div class="col-md-12">
+          <h1>Thank you for your submission!</h1>
+        </div>
+        </div>
+      </div>
+    </div>
+          <div class="card mb-3">
+            <div class="card-header">
+            <p th:text="${title}" />
+          </div>
+          <div class="card-body">
+          <p th:text="${blogEntry}" />
+          <p style="font-weight: bold" ; th:text="${author}" />
+        </div>
+      
+    </div>
+    <a th:href="@{/}"><button class="btn btn-success">Back To Home Page</button></a>
+ </div>
+   
+  
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">We hope that you enjoy the blog!</span>
+    </div>
+  </footer>
+
+  <div th:replace="fragments/styling :: javascripts"></div>
+</body>
+
+</html>

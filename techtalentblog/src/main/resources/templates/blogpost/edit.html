@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leah's Blog</title>
+
+    <div th:replace="fragments/styling :: headStyles" ></div>
+</head>
+
+<body>
+    <div class="container">
+        <div th:replace="/fragments/navbar :: navbar"></div>
+
+        <div class="row">
+            <div class="formInstructions">
+                <h3>Use the form below to submit a blog post:<h3>
+            </div>
+
+            <form action="#" th:action="@{~/blogposts/update/{id}(id=${blogPost.id})}" th:object="${blogPost}"
+                method="POST">
+                <label for="blogTitle">Title:</label>
+                <input type="text" name="blogTitle" th:field="*{title}" />
+
+                <label for="blogAuthor">Author:</label>
+                <input type="text" name="blogAuthor" th:field="*{author}" />
+
+                <label for="blogEntry">Blog Entry:</label>
+                <textArea id="blogText" name="blogEntry" th:field="*{blogEntry}" />
+
+                <button type="submit" class="btn btn-success">Save Your Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <div th:replace="fragments/styling :: javascripts"></div>
+</body>
+
+</html>
