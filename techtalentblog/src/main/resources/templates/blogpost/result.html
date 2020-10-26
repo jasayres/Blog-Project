@@ -14,6 +14,7 @@
     
   <div class="container"></div>
     <div class="jumbotron">
+
       <div class="row text-center">
       <div class="row">    
         <div class="col-md-12">
@@ -22,20 +23,27 @@
         </div>
       </div>
     </div>
-          <div class="card mb-3">
-            <div class="card-header">
-            <p th:text="${title}" />
-          </div>
-          <div class="card-body">
-          <p th:text="${blogEntry}" />
-          <p style="font-weight: bold" ; th:text="${author}" />
-        </div>
-      
+    <div class="card mb-3">
+      <div class="card-header">
+        <h3 th:text="${blogPost.title}"></h3>
+      </div>
+      <div class="card-body">
+        <p th:text="${blogPost.blogEntry}"></p>
+        <p style="font-weight: bold" th:text="${blogPost.author}"></p>
+      </div>
     </div>
-    <a th:href="@{/}"><button class="btn btn-success">Back To Home Page</button></a>
- </div>
-   
-  
+  </div>
+</div>
+
+<a th:href="@{/}">
+  <button class="btn btn-success">Back to home</button>
+</a>
+
+<a th:href="@{/blogpost/edit/{id}(id=${blogPost.id})}">
+  <button class="btn btn-info">Edit this post</button>
+</a>
+</div>
+
 
   <footer class="footer mt-auto py-3">
     <div class="container">

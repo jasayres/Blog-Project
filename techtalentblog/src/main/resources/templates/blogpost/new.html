@@ -15,25 +15,29 @@
     <div class="container"></div>
     <div class="jumbotron">
         <h1 class="display-3 font-bold">Create a New Blog Post:</h1>
+        <!-- This form can handle new posts, or updating old posts -->
+      <!-- Saving is directed to /blogpost -->
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="#" th:action="@{/blogpost}" th:object="${blogPost}" method="post">
-                <form action="#" th:action="@{/blogposts}" th:object="${blogPost}" method="post">
-
-                    <div class="form-group">
-                        <input type="text" class="form-control mb-3" placeholder="Blog Title..." th:field="*{title}" />
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control mb-3" placeholder="Your Name Here..." th:field="*{author}" />
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control mb-3" placeholder="Blog Entry" th:field="*{blogEntry}" />
-                    </div>
-
-                    <button class="btn btn-primary">Submit Your Post</button>
+            <form 
+            action="#" 
+            th:action="@{/blogpost}" 
+            th:object="${blogPost}" 
+            method="post">
+            <div class="form-group">
+                <!-- Adding in hidden id attribute, if it is included -->
+                <!-- The repositorys .save method will automatically override -->
+                          <input type="hidden" th:field="*{id}" />
+      
+                <!-- The placeholders will show up if the th:field is empty -->
+                <input type="text" class="form-control mb-3" placeholder="Blog Title..."th:field="*{title}" />
+      
+                <input type="text" class="form-control mb-3" placeholder="Your Name Here..." th:field="*{author}" />
+      
+                <input type="text" class="form-control mb-3" placeholder="Blog Entry..." th:field="*{blogEntry}" />
+      
+                <button type="Submit" class="btn btn-primary">Submit Post</button>
                 </form>
         </div>
 
